@@ -1,0 +1,88 @@
+/* Clean stylesheet for BudgetTracker */
+*{box-sizing:border-box;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+
+:root{
+    --bg: #ffffff; /* light mode page background */
+    --card: #ffffff; /* card / input background */
+    --accent: #4f46e5;
+    --muted: #6b7280;
+    --danger: #ef4444;
+    --text: #000000; /* light mode text */
+    --border: #e6e9ef;
+    --bg-image: none;
+}
+
+html, body{
+    height:100%;
+    margin:0;
+    background-color:var(--bg);
+    background-image: var(--bg-image);
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-blend-mode:multiply;
+    color:var(--text);
+}
+
+.container{max-width:900px;margin:28px auto;padding:20px}
+header{margin-bottom:18px}
+header h1{margin:0;font-size:1.6rem}
+header .muted{color:var(--muted);margin-top:6px}
+
+.budget-card{background:var(--card);padding:16px;border-radius:10px;box-shadow:0 1px 3px rgba(15,23,42,0.06);margin-bottom:16px;color:var(--text)}
+
+.field-row{display:flex;gap:8px;align-items:center}
+.field-row input[type=number],.field-row input[type=text],.field-row select{flex:1;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text)}
+.field-row input.qty{max-width:90px}
+.field-row input.unit{max-width:120px}
+.field-row select{max-width:160px}
+.field-row button{padding:10px 14px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer}
+.field-row button:hover{filter:brightness(.95)}
+
+.hidden{display:none}
+.secondary{padding:10px 12px;border-radius:8px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--text)}
+.secondary:hover{filter:brightness(.98)}
+
+.summary-row{display:flex;gap:18px;margin-top:12px}
+.summary-row .label{color:var(--muted);font-size:.8rem}
+.amount{font-weight:700;font-size:1.1rem}
+
+.add-item{background:var(--card);padding:14px;border-radius:10px;margin-bottom:16px;color:var(--text)}
+.items-list{background:var(--card);padding:14px;border-radius:10px;color:var(--text)}
+
+.list{list-style:none;padding:0;margin:0}
+.list li{display:flex;justify-content:space-between;align-items:center;padding:8px 6px;border-bottom:1px dashed rgba(0,0,0,0.06)}
+.list li:last-child{border-bottom:0}
+
+.item-left{display:flex;gap:12px;align-items:center}
+.item-name{font-weight:600}
+.item-amount{color:var(--muted)}
+
+.item-actions{display:flex;align-items:center}
+.item-actions button{border:0;background:transparent;cursor:pointer;margin-left:8px}
+.item-actions .edit{color:var(--accent)}
+.item-actions .remove{color:var(--danger)}
+
+.list-actions{margin-top:12px;display:flex;justify-content:flex-end}
+.danger{background:transparent;border:1px solid rgba(255,0,0,0.06);color:var(--danger);padding:8px 10px;border-radius:8px}
+.attribution{color:var(--muted);font-size:.85rem;margin-top:12px;text-align:center}
+
+.header-actions{display:flex;justify-content:flex-end;margin-top:8px}
+
+@media (max-width:640px){.summary-row{flex-direction:column;gap:6px}.field-row{flex-direction:column;align-items:stretch}.field-row button{width:100%}}
+
+/* Dark theme applied by adding .dark-theme to <html> */
+.dark-theme{
+    --bg: #000000; /* full black background in dark mode */
+    --card: #111111; /* slightly lighter for cards/inputs */
+    --accent: #8b5cf6;
+    --muted: #9ca3af;
+    --danger: #fca5a5;
+    --text: #ffffff; /* white text */
+    --border: rgba(255,255,255,0.08);
+    --bg-image: url("blackbg.webp");
+}
+
+/* Smooth transitions for theme changes */
+body, .budget-card, .add-item, .items-list{transition:background-color .18s ease,color .18s ease,border-color .18s ease}

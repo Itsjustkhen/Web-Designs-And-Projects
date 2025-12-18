@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Budget Tracker</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main class="container">
+		<header>
+			<h1>Budget Tracker</h1>
+			<p class="muted">Set a budget, add items, and track remaining funds.</p>
+			<div class="header-actions">
+				<button id="themeToggleBtn" class="secondary">Toggle Theme</button>
+			</div>
+		</header>
+
+		<section class="budget-card">
+			<div class="field-row">
+				<label for="budgetInput">Total Budget</label>
+				<input id="budgetInput" type="number" placeholder="Enter total budget" min="0" />
+				<select id="currencySelect" aria-label="Choose currency">
+					<option value="USD">$ — USD</option>
+					<option value="EUR">€ — EUR</option>
+					<option value="GBP">£ — GBP</option>
+					<option value="JPY">¥ — JPY</option>
+					<option value="AUD">A$ — AUD</option>
+					<option value="CAD">C$ — CAD</option>
+                    <option value="PHP">₱ — PHP</option>
+				</select>
+				<button id="setBudgetBtn">Set Budget</button>
+				<button id="addToBudgetBtn" class="secondary">Add to Budget</button>
+				<button id="clearBudgetBtn" class="secondary">Clear Budget</button>
+			</div>
+
+			<div class="summary-row">
+				<div>
+					<div class="label">Budget</div>
+					<div id="budgetAmount" class="amount">₱0.00</div>
+				</div>
+				<div>
+					<div class="label">Spent</div>
+					<div id="spentAmount" class="amount">₱0.00</div>
+				</div>
+				<div>
+					<div class="label">Remaining</div>
+					<div id="remainingAmount" class="amount">₱0.00</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="add-item">
+			<h2>Add Item</h2>
+			<div class="field-row">
+				<input id="itemName" type="text" placeholder="Item name (e.g., Banana)" />
+				<input id="itemQty" type="number" class="qty" placeholder="Qty" min="1" value="1" />
+				<input id="itemUnitPrice" type="number" class="unit" placeholder="Unit price" min="0" step="0.01" />
+				<button id="addItemBtn">Add</button>
+				<button id="cancelEditBtn" class="secondary hidden">Cancel</button>
+			</div>
+			<p class="muted small">You can add items like "3 bananas at 3 each" by entering qty and unit price.</p>
+		</section>
+
+		<section class="items-list">
+			<h2>Items</h2>
+			<ul id="items" class="list"></ul>
+			<div class="list-actions">
+				<button id="clearBtn" class="danger">Clear All</button>
+			</div>
+		</section>
+
+		<footer class="attribution">Data stored locally in your browser.</footer>
+	</main>
+
+	<script src="app.js"></script>
+</body>
+</html>
